@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Website</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #222;
+        }
+
+        header {
+            background-color: #fa46dc;
+            color: white;
+            padding: 25px 15px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* Navigation Menu */
+        .navbar {
+            background-color: #f051f0;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: #f54fe7;
+        }
+
+        /* About Section */
+        .content {
+            background-color: white;
+            margin: 40px auto;
+            padding: 30px;
+            max-width: 600px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #ff57e3;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #fd60e3;
+        }
+
+        #message {
+            color: rgb(243, 104, 236);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 30px 20px;
+            text-align: center;
+            scroll-margin-top: 20px;
+        }
+
+        .service-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 20px;
+            width: 220px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card h3 {
+            color: #0e010c;
+        }
+
+        /* Contact Form */
+        .contact {
+            background-color: white;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            scroll-margin-top: 20px;
+        }
+
+        .contact input,
+        .contact textarea {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+        }
+
+        .contact textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        #formResult {
+            color: green;
+            overflow-wrap: anywhere;
+        }
+
+        /* Mobile Design */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            header {
+                padding: 18px 10px;
+            }
+
+            .navbar {
+                gap: 18px;
+            }
+
+            .content {
+                margin: 20px 12px;
+                padding: 20px 15px;
+            }
+
+            .service-card {
+                width: 100%;
+            }
+
+            .contact {
+                margin: 20px 12px;
+                padding: 20px 15px;
+            }
+        }
+        .footer {
+    background-color: #0b2545;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+.footer p {
+    font-size: 14px;
+    margin: 0;
+}
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+body.dark-mode .content,
+body.dark-mode .service-card,
+body.dark-mode .contact,
+body.dark-mode .calculator {
+    background-color: #242424;
+    color: #f1f1f1;
+}
+
+body.dark-mode .calculator input {
+    background-color: #333333;
+    color: white;
+    border-color: #666666;
+}
+
+body.dark-mode .calculator input::placeholder {
+    color: #cccccc;
+}
+
+body.dark-mode .service-card h3 {
+    color: #66b2ff;
+}
+/* Calculator Design */
+.calculator {
+    background-color: white;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.calculator input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.calculator-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.calculator-buttons button {
+    min-width: 55px;
+    font-size: 22px;
+}
+
+#calcResult {
+    overflow-wrap: anywhere;
+    margin-top: 20px;
+}
+    </style>
+</head>
+
+<body id="home">
+
+    <!-- Header -->
+    <header>
+        <h1>Loops&Knots By Nimra</h1>
+        <p>Welcome to My Website!</p>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact Us</a>
+    </nav>
+<div style="text-align: center; padding: 15px;">
+    <button id="darkModeButton" onclick="toggleDarkMode()">
+        🌙 Dark Mode
+    </button>
+</div>
+    <!-- About Section -->
+<div class="content" id="about">
+    <h2>About Our Website</h2>
+        <p>We create modern and useful technology solutions.</p>
+
+        <button onclick="goToAbout()">Learn More</button>
+        <p id="message"></p>
+    </div>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2>Our Services</h2>
+
+        <div class="service-container">
+
+            <div class="service-card">
+                <h3>Cardigans</h3>
+                <p>Customize sizes are available.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Scarf</h3>
+                <p>Send us your references.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Assosries</h3>
+                <p>Tell us your inspo.</p>
+            </div>
+
+        </div>
+    </section>
+<!-- Calculator Section -->
+<section class="calculator">
+    <h2>My Calculator</h2>
+
+    <input type="number" id="num1" placeholder="Enter first number">
+
+    <input type="number" id="num2" placeholder="Enter second number">
+
+    <div class="calculator-buttons">
+        <button onclick="calculate('+')">+</button>
+        <button onclick="calculate('-')">−</button>
+        <button onclick="calculate('*')">×</button>
+        <button onclick="calculate('/')">÷</button>
+    </div>
+
+    <h3 id="calcResult">Result: 0</h3>
+</section>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <p>Have a question? Send us a message.</p>
+
+        <form id="contactForm">
+            <input
+                type="text"
+                id="visitorName"
+                placeholder="Your Name"
+                required
+            >
+
+            <input
+                type="email"
+                id="visitorEmail"
+                placeholder="Your Email"
+                required
+            >
+
+            <textarea
+                id="visitorMessage"
+                placeholder="Write your message"
+                required
+            ></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <p id="formResult"></p>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        function showMessage() {
+            document.getElementById("message").innerText =
+                "Thank you for visiting our Tech Website!";
+        }
+
+        document.getElementById("contactForm").addEventListener(
+            "submit",
+            function(event) {
+                event.preventDefault();
+
+                let name = document
+                    .getElementById("visitorName")
+                    .value.trim();
+
+                document.getElementById("formResult").innerText =
+                    "Thank you, " + name +
+                    "! Your message has been received.";
+            }
+        );
+        function goToAbout() {
+    document.getElementById("about").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+
+    let button = document.getElementById("darkModeButton");
+
+    if (document.body.classList.contains("dark-mode")) {
+        button.innerText = "☀️ Light Mode";
+    } else {
+        button.innerText = "🌙 Dark Mode";
+    }
+}
+function calculate(operator) {
+    let firstInput = document.getElementById("num1").value;
+    let secondInput = document.getElementById("num2").value;
+
+    let resultElement = document.getElementById("calcResult");
+
+    if (firstInput === "" || secondInput === "") {
+        resultElement.innerText = "Please enter both numbers!";
+        return;
+    }
+
+    let num1 = Number(firstInput);
+    let num2 = Number(secondInput);
+    let result;
+
+    if (operator === "+") {
+        result = num1 + num2;
+    } else if (operator === "-") {
+        result = num1 - num2;
+    } else if (operator === "*") {
+        result = num1 * num2;
+    } else if (operator === "/") {
+        if (num2 === 0) {
+            resultElement.innerText = "Cannot divide by zero!";
+            return;
+        }
+        result = num1 / num2;
+    }
+
+    resultElement.innerText = "Result: " + result;
+}
+    </script>
+<footer class="footer">
+    <p>&copy; 2026 Tech Website. All rights reserved.</p>
+</footer>
+</body>
+</html>
